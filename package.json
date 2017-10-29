@@ -1,0 +1,33 @@
+{
+    "name": "sprucebot-react",
+    "version": "0.0.5",
+    "main": "lib/Sprucebot.js",
+    "devDependencies": {
+        "babel-eslint": "^8.0.1",
+        "eslint": "^4.10.0",
+        "eslint-plugin-react": "^7.4.0",
+        "gulp": "^3.9.1",
+        "react": "^16.0.0",
+        "react-component-gulp-tasks": "^0.7.7",
+        "react-dom": "^16.0.0"
+    },
+    "peerDependencies": {
+        "react": "^0.14.0"
+    },
+    "browserify-shim": {
+        "react": "global:React"
+    },
+    "scripts": {
+        "build": "gulp clean && NODE_ENV=production gulp build",
+        "examples": "gulp dev:server",
+        "lint": "eslint ./; true",
+        "publish:site": "NODE_ENV=production gulp publish:examples",
+        "release": "NODE_ENV=production gulp release",
+        "start": "gulp dev",
+        "test": "echo \"no tests yet\" && exit 0",
+        "watch": "gulp watch:lib"
+    },
+    "dependencies": {
+        "styled-components": "^2.2.2"
+    }
+}
