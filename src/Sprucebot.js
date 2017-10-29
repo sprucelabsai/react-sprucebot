@@ -6,7 +6,8 @@ import Container from './components/Container/Container'
 import Input from './components/Input/Input'
 import Pre from './components/Pre/Pre'
 import Switch from './components/Switch/Switch'
-import Typeography from './components/Typeography/Typeography'
+import Loader from './components/Loader/Loader'
+import * as Typeography from './components/Typeography/Typeography'
 const Sprucebot = {
     components: {
         Avatar,
@@ -17,6 +18,7 @@ const Sprucebot = {
         Input,
         Pre,
         Switch,
+        Loader,
         ...Typeography
     }
 }
