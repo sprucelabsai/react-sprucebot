@@ -1,12 +1,12 @@
 import Avatar from './components/Avatar/Avatar'
-import BotText from './components/Avatar/BotText'
-import Button from './components/Avatar/Button'
-import Card from './components/Avatar/Card'
-import Container from './components/Avatar/Container'
-import Input from './components/Avatar/Input'
-import Pre from './components/Avatar/Pre'
-import Switch from './components/Avatar/Switch'
-import Typeography from './components/Avatar/Typeography'
+import BotText from './components/BotText/BotText'
+import Button from './components/Button/Button'
+import Card from './components/Card/Card'
+import Container from './components/Container/Container'
+import Input from './components/Input/Input'
+import Pre from './components/Pre/Pre'
+import Switch from './components/Switch/Switch'
+import Typeography from './components/Typeography/Typeography'
 const Sprucebot = {
     components: {
         Avatar,
@@ -17,7 +17,8 @@ const Sprucebot = {
         Input,
         Pre,
         Switch,
-        Typeography
+        ...Typeography
     }
 }
 export default Sprucebot
+export const components = Sprucebot.components
