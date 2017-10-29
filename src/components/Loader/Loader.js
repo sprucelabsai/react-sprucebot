@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 
 export default class Loader extends Component {
 	render() {
-		const { blue, fullWidth } = this.props
-		const dotClassName = blue ? 'loader_dot_blue' : 'loader_dot'
+		const { dark, fullWidth } = this.props
+		const dotClassName = dark ? 'loader_dot_dark' : 'loader_dot'
 		const fullWidthStyle = fullWidth
 			? { display: 'block', margin: '20px', textAlign: 'center' }
 			: {}
@@ -20,11 +20,11 @@ export default class Loader extends Component {
 }
 
 Loader.propTypes = {
-	blue: PropTypes.bool,
+	dark: PropTypes.bool,
 	fullWidth: PropTypes.bool
 }
 
 Loader.defaultProps = {
-	blue: true,
+	dark: true,
 	fullWidth: true
 }

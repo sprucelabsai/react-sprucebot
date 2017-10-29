@@ -1,6 +1,6 @@
 {
     "name": "sprucebot-react",
-    "version": "0.0.8",
+    "version": "0.0.10",
     "main": "lib/Sprucebot.js",
     "devDependencies": {
         "babel-eslint": "^8.0.1",

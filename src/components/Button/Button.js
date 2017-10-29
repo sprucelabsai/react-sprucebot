@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Emojify from 'react-emojione'
 import PropTypes from 'prop-types'
-import Loader from './Loader'
+import Loader from '../Loader/Loader'
 
 // TODO refactor into styled component
 export default class Button extends Component {
