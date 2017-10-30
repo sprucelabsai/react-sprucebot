@@ -5,7 +5,7 @@ export const Paragraph = styled.p.attrs({
 })``
 
 export const H1 = styled.h1.attrs({
-	className: props => (props.header ? 'with__subheader' : '')
+	className: props => (props.with_subheader ? 'with__subheader' : '')
 })``
 export const H2 = styled.h2.attrs({
 	className: props => (props.subheader ? 'is__subheader' : '')
