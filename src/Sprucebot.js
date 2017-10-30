@@ -9,18 +9,15 @@ import Switch from './components/Switch/Switch'
 import Loader from './components/Loader/Loader'
 import * as Typeography from './components/Typeography/Typeography'
 const Sprucebot = {
-    components: {
-        Avatar,
-        BotText,
-        Button,
-        Card,
-        Container,
-        Input,
-        Pre,
-        Switch,
-        Loader,
-        ...Typeography
-    }
+	Avatar,
+	BotText,
+	Button,
+	Card,
+	Container,
+	Input,
+	Pre,
+	Switch,
+	Loader,
+	...Typeography
 }
-export default Sprucebot
-export const components = Sprucebot.components
+module.exports = Sprucebot
