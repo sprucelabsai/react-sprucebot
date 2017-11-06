@@ -1,7 +1,14 @@
 {
     "name": "react-sprucebot",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "main": "lib/Sprucebot.js",
+    "scripts": {
+        "build": "babel ./src --out-dir ./lib",
+        "lint": "eslint src",
+        "test": "jest --coverage",
+        "precommit": "npm run lint && npm run build",
+        "prepush": "npm run lint && npm run test"
+    },
     "devDependencies": {
         "babel": "^6.23.0",
         "babel-cli": "^6.26.0",
@@ -23,13 +30,6 @@
     },
     "peerDependencies": {
         "react": "^16.0.0"
-    },
-    "scripts": {
-        "build": "babel ./src --out-dir ./lib",
-        "lint": "eslint src",
-        "test": "jest --coverage",
-        "precommit": "npm run lint && npm run build",
-        "prepush": "npm run lint && npm run test"
     },
     "dependencies": {
         "react-emojione": "^5.0.0",

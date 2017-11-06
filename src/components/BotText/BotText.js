@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const BotText = styled.div.attrs({
+const BotText = styled.p.attrs({
 	className: 'bot__text'
 })``
 

@@ -16,3 +16,6 @@ export const H5 = styled.h5``
 export const H6 = styled.h6``
 
 export const A = styled.a``
+export const SectionHeading = styled.h2.attrs({
+	className: 'profile__subtitle'
+})``

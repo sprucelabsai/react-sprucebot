@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 
 describe('p tag', () => {
-	const { Paragraph } = require('./Typeography')
+	const { Paragraph } = require('./Typography')
 
 	test('it renders', () => {
 		const tree = renderer.create(<Paragraph />).toJSON()
@@ -17,7 +17,7 @@ describe('p tag', () => {
 })
 
 describe('h1 tag', () => {
-	const { H1, H2 } = require('./Typeography')
+	const { H1, H2 } = require('./Typography')
 	test('it renders', () => {
 		const tree = renderer.create(<H1 />).toJSON()
 		expect(tree).toMatchSnapshot()
