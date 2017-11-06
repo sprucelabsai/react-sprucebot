@@ -1,1 +1,1 @@
-# Sprucebot for React
+# Sprucebot for React [![Build Status](https://travis-ci.org/sprucelabsai/react-sprucebot.svg?branch=master)](https://travis-ci.org/sprucelabsai/react-sprucebot)
