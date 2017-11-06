@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabPane renders 1`] = `
+<div
+  className="tap__pane"
+/>
+`;
+
+exports[`Tabs renders 1`] = `
+<div
+  className="tabs__container  undefined"
+>
+  <div
+    className="tabs"
+  />
+  <div
+    className="tab__panes"
+  />
+</div>
+`;

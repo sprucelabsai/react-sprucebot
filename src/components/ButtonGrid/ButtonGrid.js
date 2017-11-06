@@ -9,17 +9,12 @@ export const ButtonGrid = styled.div.attrs({
 export class GridButton extends Component {
 	render() {
 		const props = Object.assign({}, this.props)
-		const { className, selected, children, subtitle } = props
-
-		delete props.className
-		delete props.selected
-		delete props.children
-		delete props.subtitle
+		const { className, selected, children, subtitle, ...rest } = props
 
 		return (
 			<a
 				className={`btn ${className || ''} ${selected ? 'selected' : ''}`}
-				{...props}
+				{...rest}
 			>
 				<span>
 					{children}

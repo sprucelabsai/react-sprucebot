@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Emojify from 'react-emojione'
 import PropTypes from 'prop-types'
 import Loader from '../Loader/Loader'
 
@@ -71,11 +70,7 @@ export default class Button extends Component {
 
 		return (
 			<Tag className={`${btnClass} ${className || ''}`} {...props}>
-				{busy ? (
-					<Loader dark={false} fullWidth={false} />
-				) : (
-					<Emojify>{children}</Emojify>
-				)}
+				{busy ? <Loader dark={false} fullWidth={false} /> : children}
 			</Tag>
 		)
 	}

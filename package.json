@@ -32,7 +32,6 @@
         "react": "^16.0.0"
     },
     "dependencies": {
-        "react-emojione": "^5.0.0",
         "styled-components": "^2.2.2"
     }
 }

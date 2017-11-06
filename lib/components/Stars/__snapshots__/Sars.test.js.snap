@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders 1`] = `
+<div
+  className="stars"
+  onMouseLeave={[Function]}
+>
+  <div
+    className="star "
+    onClick={[Function]}
+    onMouseOver={[Function]}
+  />
+  <div
+    className="star "
+    onClick={[Function]}
+    onMouseOver={[Function]}
+  />
+  <div
+    className="star "
+    onClick={[Function]}
+    onMouseOver={[Function]}
+  />
+  <div
+    className="star "
+    onClick={[Function]}
+    onMouseOver={[Function]}
+  />
+  <div
+    className="star "
+    onClick={[Function]}
+    onMouseOver={[Function]}
+  />
+</div>
+`;
