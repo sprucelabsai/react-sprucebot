@@ -1,7 +1,20 @@
 {
     "name": "react-sprucebot",
-    "version": "0.0.2",
+    "version": "0.1.1",
     "main": "lib/Sprucebot.js",
+    "description": "",
+    "keywords": [
+        "react",
+        "node",
+        "components",
+        "sprucebot",
+        "sprucelabs"
+    ],
+    "license": "SEE LICENCE in LICENCE",
+    "homepage": "https://github.com/sprucelabsai/react-sprucebot",
+    "bugs": {
+        "url": "https://github.com/sprucelabsai/react-sprucebot/issues"
+    },
     "scripts": {
         "build": "babel ./src --out-dir ./lib",
         "lint": "eslint src",
