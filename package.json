@@ -1,10 +1,14 @@
 {
     "name": "react-sprucebot",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "main": "lib/Sprucebot.js",
     "description": "",
     "keywords": [
-        "react", "node", "components", "sprucebot", "sprucelabs"
+        "react",
+        "node",
+        "components",
+        "sprucebot",
+        "sprucelabs"
     ],
     "license": "SEE LICENCE in LICENCE",
     "homepage": "https://github.com/sprucelabsai/react-sprucebot",
