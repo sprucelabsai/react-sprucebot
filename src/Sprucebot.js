@@ -7,7 +7,17 @@ import Input from './components/Input/Input'
 import Pre from './components/Pre/Pre'
 import Switch from './components/Switch/Switch'
 import Loader from './components/Loader/Loader'
-import * as Typeography from './components/Typeography/Typeography'
+import Form from './components/Form/Form'
+import LinkPile from './components/LinkPile/LinkPile'
+import Select from './components/Select/Select'
+import SubmitWrapper from './components/SubmitWrapper/SubmitWrapper'
+import Pager from './components/Pager/Pager'
+import Stars from './components/Stars/Stars'
+import * as ButtonGrid from './components/ButtonGrid/ButtonGrid'
+import StatsSlider from './components/StatsSlider/StatsSlider'
+import * as Typography from './components/Typography/Typography'
+import * as List from './components/List/List'
+import * as Tabs from './components/Tabs/Tabs'
 const Sprucebot = {
 	Avatar,
 	BotText,
@@ -18,6 +28,17 @@ const Sprucebot = {
 	Pre,
 	Switch,
 	Loader,
-	...Typeography
+	LinkPile,
+	Form,
+	Select,
+	SubmitWrapper,
+	Pager,
+	StatsSlider,
+	ButtonGrid,
+	Stars,
+	...Typography,
+	...List,
+	...Tabs,
+	...ButtonGrid
 }
 module.exports = Sprucebot
