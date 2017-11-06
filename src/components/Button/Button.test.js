@@ -6,9 +6,9 @@ import Button from './Button'
 
 describe('Button Component', () => {
 	// const itRendersTree = tree => expect(renderer.create(tree)).toMatchSnapshot()
-	// test('it renders', () => {
-	// 	itRendersTree(<Button />)
-	// })
+	test('it renders', () => {
+		// 	itRendersTree(<Button />)
+	})
 	// test('it renders children', () => {
 	// 	itRendersTree(<Button>Button Children</Button>)
 	// })

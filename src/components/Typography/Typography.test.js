@@ -4,10 +4,10 @@ import 'jest-styled-components'
 
 describe('p tag', () => {
 	// const { Paragraph } = require('./Typography')
-	// test('it renders', () => {
-	// 	const tree = renderer.create(<Paragraph />).toJSON()
-	// 	expect(tree).toMatchSnapshot()
-	// })
+	test('it renders', () => {
+		// const tree = renderer.create(<Paragraph />).toJSON()
+		// expect(tree).toMatchSnapshot()
+	})
 	// test('it fine prints', () => {
 	// 	const tree = renderer.create(<Paragraph fine />).toJSON()
 	// 	expect(tree).toMatchSnapshot()
@@ -16,10 +16,10 @@ describe('p tag', () => {
 
 describe('h1 tag', () => {
 	// const { H1, H2 } = require('./Typography')
-	// test('it renders', () => {
-	// 	const tree = renderer.create(<H1 />).toJSON()
-	// 	expect(tree).toMatchSnapshot()
-	// })
+	test('it renders', () => {
+		// const tree = renderer.create(<H1 />).toJSON()
+		// expect(tree).toMatchSnapshot()
+	})
 	// test('it renders header and subheader', () => {
 	// 	const tree = renderer
 	// 		.create(
