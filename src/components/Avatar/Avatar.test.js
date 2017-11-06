@@ -4,9 +4,7 @@ import 'jest-styled-components'
 
 import Avatar from './Avatar'
 
-describe('Avatar Component', () => {
-	test('it renders', () => {
-		// 	const tree = renderer.create(<Avatar image="test.jpg" />).toJSON()
-		// 	expect(tree).toMatchSnapshot()
-	})
+test('it renders', () => {
+	const tree = renderer.create(<Avatar image="test.jpg" />).toJSON()
+	expect(tree).toMatchSnapshot()
 })
