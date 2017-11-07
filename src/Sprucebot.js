@@ -18,7 +18,9 @@ import StatsSlider from './components/StatsSlider/StatsSlider'
 import * as Typography from './components/Typography/Typography'
 import * as List from './components/List/List'
 import * as Tabs from './components/Tabs/Tabs'
+import skill from './skillskit'
 const Sprucebot = {
+	skill,
 	Avatar,
 	BotText,
 	Button,
