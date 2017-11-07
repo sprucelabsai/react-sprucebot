@@ -13,6 +13,7 @@ import Select from './components/Select/Select'
 import SubmitWrapper from './components/SubmitWrapper/SubmitWrapper'
 import Pager from './components/Pager/Pager'
 import Stars from './components/Stars/Stars'
+import DevControls from './components/DevControls/DevControls'
 import * as ButtonGrid from './components/ButtonGrid/ButtonGrid'
 import StatsSlider from './components/StatsSlider/StatsSlider'
 import * as Typography from './components/Typography/Typography'
@@ -38,6 +39,7 @@ const Sprucebot = {
 	StatsSlider,
 	ButtonGrid,
 	Stars,
+	DevControls,
 	...Typography,
 	...List,
 	...Tabs,

@@ -1,6 +1,6 @@
 {
     "name": "react-sprucebot",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "main": "lib/Sprucebot.js",
     "description": "",
     "keywords": [
@@ -45,6 +45,7 @@
         "react": "^16.0.0"
     },
     "dependencies": {
+        "prop-types": "^15.6.0",
         "styled-components": "^2.2.2"
     }
 }
