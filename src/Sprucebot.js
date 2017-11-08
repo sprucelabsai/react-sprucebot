@@ -1,7 +1,6 @@
 import Avatar from './components/Avatar/Avatar'
 import BotText from './components/BotText/BotText'
 import Button from './components/Button/Button'
-import Card from './components/Card/Card'
 import Container from './components/Container/Container'
 import Input from './components/Input/Input'
 import Pre from './components/Pre/Pre'
@@ -20,12 +19,18 @@ import * as Typography from './components/Typography/Typography'
 import * as List from './components/List/List'
 import * as Tabs from './components/Tabs/Tabs'
 import skill from './skillskit'
+import _document from './skillskit/next/_document'
+import Page from './skillskit/next/Page'
+import withStore from './skillskit/store/withStore'
+
 const Sprucebot = {
 	skill,
+	_document,
+	Page,
+	withStore,
 	Avatar,
 	BotText,
 	Button,
-	Card,
 	Container,
 	Input,
 	Pre,
