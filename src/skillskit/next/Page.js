@@ -5,6 +5,7 @@ import Cookies from 'cookies'
 import skill from '../index'
 import DevControls from '../../components/DevControls/DevControls'
 import qs from 'qs'
+import lang from '../helpers/lang'
 
 const Page = Wrapped => {
 	// const ConnectedWrapped = connect(mapStateToProps, mapDispatchToProps)(Wrapped)
@@ -101,15 +102,22 @@ const Page = Wrapped => {
 		}
 
 		render() {
+
+			// Configure lang if setup
+			if (this.props.config.lang) {
+				lang.lang = this.props.config.lang.default
+				lang.override = this.props.config.lang.override
+			}
+
 			if (this.props.devMode) {
 				return (
 					<div>
 						<DevControls auth={this.props.auth} />
-						<ConnectedWrapped {...this.props} skill={skill} />
+						<ConnectedWrapped {...this.props} skill={skill} getText={lang.get.bind(lang)} />
 					</div>
 				)
 			}
-			return <ConnectedWrapped {...this.props} skill={skill} />
+			return <ConnectedWrapped {...this.props} skill={skill} getText={lang.get.bind(lang)} />
 		}
 	}
 }

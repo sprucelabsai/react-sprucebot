@@ -22,8 +22,10 @@ import skill from './skillskit'
 import _document from './skillskit/next/_document'
 import Page from './skillskit/next/Page'
 import withStore from './skillskit/store/withStore'
+import lang from './skillskit/helpers/lang'
 
 const Sprucebot = {
+	lang,
 	skill,
 	_document,
 	Page,

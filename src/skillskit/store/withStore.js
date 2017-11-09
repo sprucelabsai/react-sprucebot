@@ -37,7 +37,10 @@ function createStore({ reducers = {}, config }) {
 
 		const store = createRedux(
 			combineReducers(reducers),
-			{ ...initialState, config },
+			{
+				...initialState,
+				config
+			},
 			enhancer
 		)
 
