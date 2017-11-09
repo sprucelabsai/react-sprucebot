@@ -67,9 +67,9 @@ export class ListItem extends Component {
 					</div>
 				)}
 				{children && <div className="item__details">{children}</div>}
-				{rightInput && rightInput}
-				{(rightTitle || rightSubtitle) && (
+				{(rightTitle || rightSubtitle || rightInput) && (
 					<div className="content__right">
+						{rightInput && rightInput}
 						{rightTitle && <div className="title">{rightTitle}</div>}
 						{rightSubtitle && <div className="sub__title">{rightSubtitle}</div>}
 					</div>

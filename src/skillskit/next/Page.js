@@ -4,6 +4,7 @@ import * as actions from '../store/actions'
 import Cookies from 'cookies'
 import skill from '../index'
 import DevControls from '../../components/DevControls/DevControls'
+import qs from 'qs'
 
 const Page = Wrapped => {
 	// const ConnectedWrapped = connect(mapStateToProps, mapDispatchToProps)(Wrapped)
@@ -52,7 +53,7 @@ const Page = Wrapped => {
 				}
 			}
 
-			let redirect = false
+			let redirect = props.redirect || false
 			if (props.auth && !props.auth.error) {
 				props.auth.role =
 					(props.config.DEV_MODE && cookies.get('devRole')) || props.auth.role
@@ -60,18 +61,23 @@ const Page = Wrapped => {
 
 			// make sure we have a user AND a location if we are not flagged as public
 			if (
+				!redirect &&
 				!props.public &&
 				(!props.auth || !props.auth.role || props.auth.error)
 			) {
 				redirect = '/unauthorized'
-			} else if (!props.public) {
+			} else if (!redirect && !props.public) {
 				// check role against first part of path
 				const role = props.auth.role
 				const firstPart = props.pathname.split('/')[1]
 
+				let queryString = { ...query }
+				delete queryString.jwt
+				queryString = qs.stringify(queryString)
+
 				// we are at '/' then redirect to the corresponding role's path
 				if (props.pathname === '/') {
-					redirect = `/${role}`
+					redirect = `/${role}?${queryString}`
 				} else if (role !== firstPart) {
 					redirect = `/unauthorized`
 				}

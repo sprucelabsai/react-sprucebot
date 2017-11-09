@@ -60,7 +60,7 @@ export default class Button extends Component {
 		btnClass += toggle ? 'btn__toggle' : ''
 
 		if (remove) {
-			btnClass = 'remove'
+			btnClass = 'btn__remove'
 		} else if (!btnClass) {
 			btnClass = 'btn'
 		}

@@ -24,8 +24,7 @@ class ApiClient {
 						let fetchOptions = {
 							method,
 							headers,
-							body: JSON.stringify(body),
-							credentials: 'same-origin'
+							body: JSON.stringify(body)
 						}
 
 						// Allows Node to accept our self signed cert
