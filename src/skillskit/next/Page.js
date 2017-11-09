@@ -102,7 +102,6 @@ const Page = Wrapped => {
 		}
 
 		render() {
-
 			// Configure lang if setup
 			if (this.props.config.lang) {
 				lang.lang = this.props.config.lang.default
@@ -113,11 +112,21 @@ const Page = Wrapped => {
 				return (
 					<div>
 						<DevControls auth={this.props.auth} />
-						<ConnectedWrapped {...this.props} skill={skill} getText={lang.get.bind(lang)} />
+						<ConnectedWrapped
+							{...this.props}
+							skill={skill}
+							getText={lang.get.bind(lang)}
+						/>
 					</div>
 				)
 			}
-			return <ConnectedWrapped {...this.props} skill={skill} getText={lang.get.bind(lang)} />
+			return (
+				<ConnectedWrapped
+					{...this.props}
+					skill={skill}
+					getText={lang.get.bind(lang)}
+				/>
+			)
 		}
 	}
 }
