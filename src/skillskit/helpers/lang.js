@@ -1,13 +1,17 @@
 export default {
 	lang: {},
 	overrides: {},
-	async configure(langDir) {
+	configure(langDir) {
 		this.lang = require(`${langDir}/default.js`)
 		try {
 			this.overrides = require(`${langDir}/override.js`)
 		} catch (err) {
 			console.info('No lang override specified.')
 		}
+	},
+	mixin(lang, overrides) {
+		this.lang = lang
+		this.overrides = overrides
 	},
 	get(key, context = {}) {
 		const translations = {

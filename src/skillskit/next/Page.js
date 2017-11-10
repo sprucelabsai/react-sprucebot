@@ -47,19 +47,21 @@ const Page = Wrapped => {
 				...state
 			}
 
+			if (props.auth && !props.auth.error) {
+				props.auth.role =
+				(props.config.DEV_MODE && cookies.get('devRole')) || props.auth.role
+			}
+			
+			
 			if (ConnectedWrapped.getInitialProps) {
 				props = {
 					...props,
 					...(await ConnectedWrapped.getInitialProps.call(this, ...arguments))
 				}
 			}
-
+			
 			let redirect = props.redirect || false
-			if (props.auth && !props.auth.error) {
-				props.auth.role =
-					(props.config.DEV_MODE && cookies.get('devRole')) || props.auth.role
-			}
-
+		
 			// make sure we have a user AND a location if we are not flagged as public
 			if (
 				!redirect &&
@@ -102,12 +104,6 @@ const Page = Wrapped => {
 		}
 
 		render() {
-			// Configure lang if setup
-			if (this.props.config.lang) {
-				lang.lang = this.props.config.lang.default
-				lang.override = this.props.config.lang.override
-			}
-
 			if (this.props.devMode) {
 				return (
 					<div>

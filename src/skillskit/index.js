@@ -37,6 +37,9 @@ export default {
 			)
 		}
 	},
+	back: function() {
+		window.parent.postMessage('Skill:Back', '*')
+	},
 	ready: function() {
 		this.resized()
 		window.parent.postMessage(
