@@ -49,19 +49,18 @@ const Page = Wrapped => {
 
 			if (props.auth && !props.auth.error) {
 				props.auth.role =
-				(props.config.DEV_MODE && cookies.get('devRole')) || props.auth.role
+					(props.config.DEV_MODE && cookies.get('devRole')) || props.auth.role
 			}
-			
-			
+
 			if (ConnectedWrapped.getInitialProps) {
 				props = {
 					...props,
 					...(await ConnectedWrapped.getInitialProps.call(this, ...arguments))
 				}
 			}
-			
+
 			let redirect = props.redirect || false
-		
+
 			// make sure we have a user AND a location if we are not flagged as public
 			if (
 				!redirect &&
