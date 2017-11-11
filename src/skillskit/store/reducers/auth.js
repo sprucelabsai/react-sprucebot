@@ -1,8 +1,7 @@
 import {
 	GO_AUTH_REQUEST,
 	GO_AUTH_SUCCESS,
-	GO_AUTH_ERROR,
-	AUTH_REMEMBER
+	GO_AUTH_ERROR
 } from '../actions/auth'
 
 export default function reducer(state = null, action) {

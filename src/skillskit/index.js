@@ -1,5 +1,8 @@
 export default {
 	height: 0,
+	forceAuth: function() {
+		window.parent.postMessage('Skill:ForceAuth', '*')
+	},
 	resized: function() {
 		var height = 0
 

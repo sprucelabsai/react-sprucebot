@@ -1,17 +1,45 @@
 import React, { Component } from 'react'
 
 import * as actions from '../store/actions'
-import Cookies from 'cookies'
+import ServerCookies from 'cookies'
+import ClientCookies from 'js-cookies'
 import skill from '../index'
 import DevControls from '../../components/DevControls/DevControls'
+import Loader from '../../components/Loader/Loader'
 import qs from 'qs'
 import lang from '../helpers/lang'
+
+const setCookie = (named, value, req, res) => {
+	if (req && req.headers) {
+		const cookies = new ServerCookies(req, res, { secure: true })
+		return cookies.set(named, value)
+	} else {
+		return ClientCookies.setItem(named, value)
+	}
+}
+
+const getCookie = (named, req, res) => {
+	if (req && req.headers) {
+		const cookies = new ServerCookies(req, res, { secure: true })
+		return cookies.get(named)
+	} else {
+		return ClientCookies.getItem(named)
+	}
+}
 
 const Page = Wrapped => {
 	// const ConnectedWrapped = connect(mapStateToProps, mapDispatchToProps)(Wrapped)
 	const ConnectedWrapped = Wrapped
 
 	return class extends Component {
+		constructor(props) {
+			super(props)
+			this.state = {
+				attemptingReAuth: !!props.attemptingReAuth
+			}
+
+			this.messageHandler = this.messageHandler.bind(this)
+		}
 		// Everything here is run server side
 		static async getInitialProps({
 			pathname,
@@ -24,15 +52,14 @@ const Page = Wrapped => {
 		}) {
 			let props = { pathname, query, asPath, skill }
 
-			const cookies = new Cookies(req, res, { secure: true })
-			const jwt = query.jwt || cookies.get('jwt')
+			const jwt = query.jwt || getCookie('jwt', req, res)
 			if (jwt) {
 				try {
 					await store.dispatch(actions.auth.go(jwt))
 
 					// only save cookie if a new one has been passed
 					if (query.jwt) {
-						cookies.set('jwt', query.jwt)
+						setCookie('jwt', query.jwt, req, res)
 					}
 				} catch (err) {
 					console.error(err)
@@ -49,7 +76,8 @@ const Page = Wrapped => {
 
 			if (props.auth && !props.auth.error) {
 				props.auth.role =
-					(props.config.DEV_MODE && cookies.get('devRole')) || props.auth.role
+					(props.config.DEV_MODE && getCookie('devRole', req, res)) ||
+					props.auth.role
 			}
 
 			if (ConnectedWrapped.getInitialProps) {
@@ -73,12 +101,13 @@ const Page = Wrapped => {
 				const role = props.auth.role
 				const firstPart = props.pathname.split('/')[1]
 
-				let queryString = { ...query }
-				delete queryString.jwt
-				queryString = qs.stringify(queryString)
+				const { jwt, ...rest } = query
+				const queryString = qs.stringify(rest)
 
 				// we are at '/' then redirect to the corresponding role's path
-				if (props.pathname === '/') {
+				if (query.back) {
+					redirect = query.back
+				} else if (props.pathname === '/') {
 					redirect = `/${role}?${queryString}`
 				} else if (role !== firstPart) {
 					redirect = `/unauthorized`
@@ -91,18 +120,48 @@ const Page = Wrapped => {
 				return
 			}
 
+			// if we are /unauthorized, don't have a cookie, but have NOT done cookie check
+			if (
+				props.pathname === '/unauthorized' &&
+				(!props.auth || !props.auth.role)
+			) {
+				props.attemptingReAuth = true
+			}
+
 			// We can only return a plain object here because it is passed to the browser
 			// No circular dependencies
 			return props
 		}
-		componentDidMount() {
-			// make sure we are being loaded inside sb
+
+		messageHandler(e) {
+			if (e.data === 'Skill:NotReAuthing') {
+				this.setState({
+					attemptingReAuth: false
+				})
+			}
+		}
+		async componentDidMount() {
+			window.addEventListener('message', this.messageHandler)
+
 			if (window.self === window.top) {
+				// make sure we are being loaded inside sb
 				console.error('NOT LOADED FROM SPRUCEBOT!! BAIL BAIL BAIL')
+				this.setState({
+					attemptingReAuth: false
+				})
+			} else if (this.props.attemptingReAuth) {
+				skill.forceAuth()
 			}
 		}
 
+		componentWillUnmount() {
+			window.removeEventListener('message', this.messageHandler)
+		}
+
 		render() {
+			if (this.state.attemptingReAuth) {
+				return <Loader />
+			}
 			if (this.props.devMode) {
 				return (
 					<div>
