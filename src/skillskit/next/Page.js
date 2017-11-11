@@ -81,9 +81,11 @@ const Page = Wrapped => {
 			}
 
 			if (ConnectedWrapped.getInitialProps) {
+				const args = Array.from(arguments)
+				args[0] = { ...props, ...args[0] }
 				props = {
 					...props,
-					...(await ConnectedWrapped.getInitialProps.call(this, ...arguments))
+					...(await ConnectedWrapped.getInitialProps.apply(this, args))
 				}
 			}
 
