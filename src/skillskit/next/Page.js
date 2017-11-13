@@ -116,10 +116,12 @@ const Page = Wrapped => {
 				}
 			}
 
-			if (redirect) {
+			if (redirect && res) {
 				res.redirect = redirect
 				res.end()
 				return
+			} else if (redirect) {
+				window.location.href = redirect
 			}
 
 			// if we are /unauthorized, don't have a cookie, but have NOT done cookie check
