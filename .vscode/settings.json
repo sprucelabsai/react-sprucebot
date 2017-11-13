@@ -4,5 +4,8 @@
         "**/bower_components": true,
         "**/lib":true,
         "**/__snapshots__":true
-    }
+    },
+    "cSpell.words": [
+        "whitelabel"
+    ]
 }

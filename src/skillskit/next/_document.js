@@ -7,6 +7,8 @@ export default class MyDocument extends Document {
 		// Build stylesheets from styled-components
 		const sheet = new ServerStyleSheet()
 		const auth = store && store.getState().auth
+		const config = store && store.getState().config
+
 		let whitelabel = false
 
 		//we have any whitelabelling happening?
@@ -25,7 +27,7 @@ export default class MyDocument extends Document {
 		)
 		const styleTags = sheet.getStyleElement()
 
-		return { ...page, styleTags, whitelabel, auth }
+		return { ...page, styleTags, whitelabel, auth, config }
 	}
 
 	render() {
@@ -34,7 +36,10 @@ export default class MyDocument extends Document {
 				<Head>
 					<title>{this.props.name}</title>
 					<link
-						href="https://hello.sprucebot.com/skills.css"
+						href={
+							(this.props.config && this.props.config.SKILL_STYLESHEET) ||
+							'https://hello.sprucebot.com/skills.css'
+						}
 						rel="stylesheet"
 						type="text/css"
 						charSet="UTF-8"
