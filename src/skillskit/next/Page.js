@@ -91,15 +91,18 @@ const Page = Wrapped => {
 
 			let redirect = props.redirect || false
 
-			// make sure we have a user AND a location if we are not flagged as public
-			if (
+			if (query.back && query.jwt && query.back.search('sprucebot.com') > 0) {
+				// if there is a jwt, we are being authed
+				redirect = query.back
+			} else if (
 				!redirect &&
 				!props.public &&
 				(!props.auth || !props.auth.role || props.auth.error)
 			) {
+				// no redirect is set, we're not public, but auth failed
 				redirect = '/unauthorized'
 			} else if (!redirect && !props.public) {
-				// check role against first part of path
+				// all things look good, lets just make sure we're in the right area (owner, teammate, or guest)
 				const role = props.auth.role
 				const firstPart = props.pathname.split('/')[1]
 
@@ -107,9 +110,7 @@ const Page = Wrapped => {
 				const queryString = qs.stringify(rest)
 
 				// we are at '/' then redirect to the corresponding role's path
-				if (query.back) {
-					redirect = query.back
-				} else if (props.pathname === '/') {
+				if (props.pathname === '/') {
 					redirect = `/${role}?${queryString}`
 				} else if (role !== firstPart) {
 					redirect = `/unauthorized`
@@ -117,8 +118,11 @@ const Page = Wrapped => {
 			}
 
 			if (redirect && res) {
-				res.redirect = redirect
+				res.writeHead(301, {
+					Location: redirect
+				})
 				res.end()
+				res.finished = true
 				return
 			} else if (redirect) {
 				window.location.href = redirect
