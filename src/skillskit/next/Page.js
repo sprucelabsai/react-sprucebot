@@ -174,21 +174,11 @@ const Page = Wrapped => {
 				return (
 					<div>
 						<DevControls auth={this.props.auth} />
-						<ConnectedWrapped
-							{...this.props}
-							skill={skill}
-							getText={lang.get.bind(lang)}
-						/>
+						<ConnectedWrapped {...this.props} skill={skill} lang={lang} />
 					</div>
 				)
 			}
-			return (
-				<ConnectedWrapped
-					{...this.props}
-					skill={skill}
-					getText={lang.get.bind(lang)}
-				/>
-			)
+			return <ConnectedWrapped {...this.props} skill={skill} lang={lang} />
 		}
 	}
 }
