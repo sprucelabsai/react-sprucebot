@@ -151,7 +151,7 @@ const Page = Wrapped => {
 		async componentDidMount() {
 			window.addEventListener('message', this.messageHandler)
 
-			if (window.self === window.top) {
+			if (window.self === window.top || window.__SBTEAMMATE__) {
 				// make sure we are being loaded inside sb
 				console.error('NOT LOADED FROM SPRUCEBOT!! BAIL BAIL BAIL')
 				this.setState({
