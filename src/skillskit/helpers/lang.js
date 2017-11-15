@@ -13,7 +13,7 @@ export default {
 		this.lang = lang
 		this.overrides = overrides
 	},
-	get(key, context = {}) {
+	getText(key, context = {}) {
 		const translations = {
 			...this.lang,
 			...this.overrides,
