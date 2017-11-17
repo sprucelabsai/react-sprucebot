@@ -35,6 +35,7 @@ export default class MyDocument extends Document {
 			<html className="skill">
 				<Head>
 					<title>{this.props.name}</title>
+					<meta name="viewport" content="width=device-width, initial-scale=1" />
 					<link
 						href={
 							(this.props.config && this.props.config.SKILL_STYLESHEET) ||
