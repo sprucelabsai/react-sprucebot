@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders 1`] = `
+<div
+  className="stat__card__slider "
+>
+  <div
+    className="stat__card__slider__scroll"
+  />
+</div>
+`;
