@@ -4,7 +4,7 @@ export default {
 	configure(langDir) {
 		this.lang = require(`${langDir}/default.js`)
 		try {
-			this.overrides = require(`${langDir}/override.js`)
+			this.overrides = require(`${langDir}/overrides.js`)
 		} catch (err) {
 			console.info('No lang override specified.')
 		}
