@@ -118,7 +118,7 @@ const Page = Wrapped => {
 			}
 
 			if (redirect && res) {
-				res.writeHead(301, {
+				res.writeHead(302, {
 					Location: redirect
 				})
 				res.end()

@@ -15,6 +15,9 @@ import Stars from './components/Stars/Stars'
 import DevControls from './components/DevControls/DevControls'
 import * as ButtonGrid from './components/ButtonGrid/ButtonGrid'
 import StatsSlider from './components/StatsSlider/StatsSlider'
+import ImageCropper from './components/ImageCropper/ImageCropper'
+import Callout from './components/Callout/Callout'
+import Feed, { FeedItem, FeedAttachment } from './components/Feed/Feed'
 import * as Typography from './components/Typography/Typography'
 import * as List from './components/List/List'
 import * as Tabs from './components/Tabs/Tabs'
@@ -46,7 +49,12 @@ const Sprucebot = {
 	StatsSlider,
 	ButtonGrid,
 	Stars,
+	ImageCropper,
 	DevControls,
+	Callout,
+	Feed,
+	FeedItem,
+	FeedAttachment,
 	...Typography,
 	...List,
 	...Tabs,

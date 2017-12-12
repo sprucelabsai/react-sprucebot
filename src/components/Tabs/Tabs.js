@@ -15,12 +15,14 @@ export class Tabs extends Component {
 		}
 
 		// default to first selected item
-		let selected = 0
+		let selected = props.selected || 0
 
 		children.forEach((tab, idx) => {
 			// lets make sure they are all tab panes
-			if (tab.type.name !== 'TabPane') {
-				throw new Error("<Tabs> can only contain <TapPane>'s as children")
+			if (!tab || !tab.type || tab.type.name !== 'TabPane') {
+				throw new Error(
+					"<Tabs> can only contain <TapPane>'s as children (none optional)"
+				)
 			}
 
 			if (tab.props.selected) {
@@ -32,6 +34,16 @@ export class Tabs extends Component {
 			selected: selected
 		}
 	}
+
+	componentWillReceiveProps(nextProps) {
+		if (
+			typeof nextProps.selected === 'number' &&
+			nextProps.selected !== this.state.selected
+		) {
+			this.setState({ selected: nextProps.selected })
+		}
+	}
+
 	onTabClick(idx, e) {
 		if (this.state.selected !== idx) {
 			if (this.props.onChange) {
@@ -42,6 +54,7 @@ export class Tabs extends Component {
 			})
 		}
 	}
+
 	render() {
 		const props = Object.assign({}, this.props)
 		let { children, className } = props
@@ -107,7 +120,8 @@ export class Tabs extends Component {
 }
 
 Tabs.propTypes = {
-	onChange: PropTypes.func
+	onChange: PropTypes.func,
+	selected: PropTypes.number
 }
 
 export class TabPane extends Component {
