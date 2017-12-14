@@ -41,37 +41,40 @@ Feed.defaultProps = {
 
 export class FeedItem extends Component {
 	render() {
+		const {
+			bigAvatar,
+			header,
+			user,
+			message,
+			createdAt,
+			attachments
+		} = this.props
+
+		const imageKey = bigAvatar ? 'profile150@2x' : 'profile60'
+
 		return (
-			<div className={`feed__item ${this.props.bigAvatar ? 'big_avatar' : ''}`}>
-				{this.props.header && (
-					<SectionHeading>{this.props.header}</SectionHeading>
-				)}
-				{this.props.user && (
+			<div className={`feed__item ${bigAvatar ? 'big_avatar' : ''}`}>
+				{header && <SectionHeading>{header}</SectionHeading>}
+				{user && (
 					<div className="feed__avatar">
 						<Avatar
-							top={this.props.bigAvatar}
+							top={bigAvatar}
 							image={
-								this.props.user.User.profileImages
-									? this.props.user.User.profileImages.profile60
-									: this.props.user.User.defaultProfileImages.profile60
+								user.User.profileImages
+									? user.User.profileImages[imageKey]
+									: user.User.defaultProfileImages[imageKey]
 							}
 						/>
 					</div>
 				)}
 				<BotText>
-					{this.props.message}
-					<span className="date">
-						{moment(this.props.createdAt).calendar()}
-					</span>
+					{message}
+					<span className="date">{moment(createdAt).calendar()}</span>
 				</BotText>
 				{this.props.attachments && (
 					<div className="feed__attachments">
-						{this.props.attachments.map((attachment, idx) => (
-							<FeedAttachment
-								key={`attachment-${idx}`}
-								title={attachment.title}
-								value={attachment.value}
-							/>
+						{attachments.map((attachment, idx) => (
+							<FeedAttachment key={`attachment-${idx}`} {...attachment} />
 						))}
 					</div>
 				)}
@@ -91,8 +94,10 @@ FeedItem.propTypes = {
 
 export class FeedAttachment extends Component {
 	render() {
+		const { fullWidth } = this.props
+		const className = fullWidth ? 'full-width' : ''
 		return (
-			<div className="feed__attachment">
+			<div className={`feed__attachment ${className}`}>
 				<div className="title">{this.props.title}</div>
 				<div className="value">{this.props.value}</div>
 			</div>
@@ -102,5 +107,6 @@ export class FeedAttachment extends Component {
 
 FeedAttachment.propTypes = {
 	title: PropTypes.string.isRequired,
-	value: PropTypes.any.isRequired
+	value: PropTypes.any.isRequired,
+	fullWidth: PropTypes.bool
 }
