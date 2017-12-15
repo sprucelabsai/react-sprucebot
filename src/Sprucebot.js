@@ -1,3 +1,6 @@
+import register from 'babel-core/register'
+import polyfill from 'babel-polyfill'
+
 import Avatar from './components/Avatar/Avatar'
 import BotText from './components/BotText/BotText'
 import Button from './components/Button/Button'
