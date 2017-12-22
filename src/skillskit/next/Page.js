@@ -69,7 +69,6 @@ const Page = Wrapped => {
 
 			const state = store.getState()
 			props = {
-				devMode: state.config.DEV_MODE,
 				...props,
 				...state
 			}
@@ -170,7 +169,7 @@ const Page = Wrapped => {
 			if (this.state.attemptingReAuth) {
 				return <Loader />
 			}
-			if (this.props.devMode) {
+			if (this.props.config.DEV_MODE) {
 				return (
 					<div>
 						<DevControls auth={this.props.auth} />

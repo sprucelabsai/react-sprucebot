@@ -19,6 +19,7 @@ import DevControls from './components/DevControls/DevControls'
 import * as ButtonGrid from './components/ButtonGrid/ButtonGrid'
 import StatsSlider from './components/StatsSlider/StatsSlider'
 import ImageCropper from './components/ImageCropper/ImageCropper'
+import TrainingGuide from './components/TrainingGuide/TrainingGuide'
 import Callout from './components/Callout/Callout'
 import Feed, { FeedItem, FeedAttachment } from './components/Feed/Feed'
 import * as Typography from './components/Typography/Typography'
@@ -58,6 +59,7 @@ const Sprucebot = {
 	Feed,
 	FeedItem,
 	FeedAttachment,
+	TrainingGuide,
 	...Typography,
 	...List,
 	...Tabs,
