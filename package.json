@@ -1,6 +1,6 @@
 {
     "name": "react-sprucebot",
-    "version": "0.10.4",
+    "version": "0.10.5",
     "main": "lib/Sprucebot.js",
     "description": "React components for your Sprucebot Skill 💪🏼",
     "keywords": [
