@@ -18,7 +18,7 @@
     "scripts": {
         "build": "babel ./src --out-dir ./lib",
         "lint": "eslint src",
-        "test": "jest --coverage",
+        "test": "jest",
         "precommit": "npm run lint && npm run build",
         "prepush": "npm run lint && npm run test",
         "watch": "chokidar 'src/**/*.js' -c 'npm run build'"
@@ -58,5 +58,9 @@
         "redux": "^3.7.2",
         "redux-thunk": "^2.2.0",
         "styled-components": "^2.2.2"
+    },
+    "jest": {
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true
     }
 }
