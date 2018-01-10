@@ -46,7 +46,7 @@ export default class Switch extends Component {
 				{...props}
 				onMouseUp={this.onChange.bind(this)}
 			>
-				<button />
+				<button type="button" />
 			</div>
 		)
 	}
