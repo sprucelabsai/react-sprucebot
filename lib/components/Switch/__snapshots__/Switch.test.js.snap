@@ -5,6 +5,8 @@ exports[`it renders 1`] = `
   className=" switch"
   onMouseUp={[Function]}
 >
-  <button />
+  <button
+    type="button"
+  />
 </div>
 `;
