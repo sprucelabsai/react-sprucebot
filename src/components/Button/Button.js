@@ -5,7 +5,6 @@ import Loader from '../Loader/Loader'
 // TODO refactor into styled component
 export default class Button extends Component {
 	render() {
-		const props = Object.assign({}, this.props)
 		const {
 			tag,
 			busy,
@@ -20,21 +19,9 @@ export default class Button extends Component {
 			submit,
 			href,
 			remove,
-			toggle
-		} = props
-
-		delete props.tag
-		delete props.primary
-		delete props.secondary
-		delete props.alt
-		delete props.children
-		delete props.busy
-		delete props.caution
-		delete props.link
-		delete props.submit
-		delete props.remove
-		delete props.toggle
-		delete props.className
+			toggle,
+			...props
+		} = this.props
 
 		if (primary && secondary) {
 			return (

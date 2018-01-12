@@ -8,7 +8,7 @@ exports[`TabPane renders 1`] = `
 
 exports[`Tabs renders 1`] = `
 <div
-  className="tabs__container  undefined"
+  className="tabs__container "
 >
   <div
     className="tabs"

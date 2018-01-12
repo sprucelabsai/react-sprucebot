@@ -56,7 +56,6 @@ exports[`Button Component it renders className 1`] = `
 exports[`Button Component it renders disabled 1`] = `
 <button
   className=" btn__disabled "
-  disabled={true}
 />
 `;
 
