@@ -3,18 +3,21 @@
 exports[`Button Component it renders 1`] = `
 <button
   className="btn "
+  type="button"
 />
 `;
 
 exports[`Button Component it renders alt 1`] = `
 <button
   className="btn__alt "
+  type="button"
 />
 `;
 
 exports[`Button Component it renders busy 1`] = `
 <button
   className="btn "
+  type="button"
 >
   <span
     className="loader_wrapper"
@@ -36,12 +39,14 @@ exports[`Button Component it renders busy 1`] = `
 exports[`Button Component it renders caution 1`] = `
 <button
   className=" btn__caution "
+  type="button"
 />
 `;
 
 exports[`Button Component it renders children 1`] = `
 <button
   className="btn "
+  type="button"
 >
   Button Children
 </button>
@@ -50,24 +55,28 @@ exports[`Button Component it renders children 1`] = `
 exports[`Button Component it renders className 1`] = `
 <button
   className="btn test classnames"
+  type="button"
 />
 `;
 
 exports[`Button Component it renders disabled 1`] = `
 <button
   className=" btn__disabled "
+  type="button"
 />
 `;
 
 exports[`Button Component it renders html tagName 1`] = `
 <span
   className="btn "
+  type="button"
 />
 `;
 
 exports[`Button Component it renders link 1`] = `
 <button
   className=" btn__link "
+  type="button"
 />
 `;
 
@@ -90,11 +99,13 @@ exports[`Button Component it renders primary && alt 1`] = `
 exports[`Button Component it renders primary 1`] = `
 <button
   className="btn__primary "
+  type="button"
 />
 `;
 
 exports[`Button Component it renders secondary 1`] = `
 <button
   className="btn__secondary "
+  type="button"
 />
 `;
