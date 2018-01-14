@@ -9,7 +9,6 @@ export const List = styled.div.attrs({
 
 export class ListItem extends Component {
 	render() {
-		const props = Object.assign({}, this.props)
 		let {
 			className,
 			children,
@@ -19,19 +18,9 @@ export class ListItem extends Component {
 			rightTitle,
 			rightSubtitle,
 			online,
-			avatar
-		} = props
-
-		// cleanup props for pass through
-		delete props.className
-		delete props.children
-		delete props.title
-		delete props.subtitle
-		delete props.rightInput
-		delete props.rightTitle
-		delete props.rightSubtitle
-		delete props.online
-		delete props.avatar
+			avatar,
+			...props
+		} = this.props
 
 		// setup class name
 		className = `${className || ''} item__list__item ${online ? '' : 'offline'}`
@@ -63,7 +52,11 @@ export class ListItem extends Component {
 			<div className={className} {...props}>
 				{avatar && (
 					<div className="avatar__outer__wrapper">
-						<Avatar online={online} image={avatar} />
+						{avatar === true ? (
+							<Avatar online={online} />
+						) : (
+							<Avatar online={online} image={avatar} />
+						)}
 					</div>
 				)}
 				{children && <div className="item__details">{children}</div>}
@@ -87,7 +80,7 @@ ListItem.propTypes = {
 	rightTitle: PropTypes.any,
 	rightSubtitle: PropTypes.any,
 	online: PropTypes.bool,
-	avatar: PropTypes.string
+	avatar: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
 }
 
 ListItem.defaultProps = {

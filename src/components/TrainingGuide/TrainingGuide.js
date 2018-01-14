@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Button from '../Button/Button'
 import BotText from '../BotText/BotText'
 
+// what is the correct way to add functionality like this?
 function height(elm) {
 	var elmHeight, elmMargin
 
@@ -95,7 +96,7 @@ export default class TrainingGuide extends Component {
 		const bottom = window.document.body.scrollTop + bounds.y + bounds.height
 		const windowBottom = window.document.body.scrollTop + window.innerHeight
 		if (bottom > windowBottom) {
-			window.document.body.scrollTop = bottom - window.innerHeight
+			window.document.body.scrollTop = bottom - window.innerHeight + 20 // random padding for now
 		}
 	}
 

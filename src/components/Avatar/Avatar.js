@@ -9,7 +9,7 @@ const Avatar = styled.div.attrs({
 		return className
 	}
 })`
-	background-image: ${props => `url(${props.image})`};
+	${props => props.image && `background-image: url(${props.image});`};
 `
 
 export default Avatar

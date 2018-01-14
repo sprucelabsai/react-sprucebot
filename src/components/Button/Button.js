@@ -71,7 +71,8 @@ Button.propTypes = {
 	busy: PropTypes.bool,
 	href: PropTypes.string,
 	remove: PropTypes.bool,
-	toggle: PropTypes.bool
+	toggle: PropTypes.bool,
+	type: PropTypes.string.isRequired
 }
 
 Button.defaultProps = {
@@ -81,5 +82,6 @@ Button.defaultProps = {
 	secondary: false,
 	busy: false,
 	remove: false,
-	toggle: false
+	toggle: false,
+	type: 'button'
 }
