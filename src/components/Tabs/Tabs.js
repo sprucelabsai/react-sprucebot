@@ -13,7 +13,7 @@ export class Tabs extends Component {
 		// default to first selected item
 		let selected = children[0] && children[0].key
 
-		if (children.count > 0) {
+		if (children.length > 0) {
 			children.some(tab => {
 				if (tab.props.selected) {
 					selected = tab.key
