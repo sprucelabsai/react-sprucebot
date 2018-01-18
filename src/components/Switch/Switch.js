@@ -25,6 +25,11 @@ export default class Switch extends Component {
 			}
 		})
 	}
+
+	componentWillReceiveProps(nextProps) {
+		this.setState({ on: nextProps.on })
+	}
+
 	render() {
 		const props = Object.assign({}, this.props)
 
@@ -36,10 +41,9 @@ export default class Switch extends Component {
 		delete props.children
 
 		// are we on?
-		if (this.state.on) {
+		if (this.props.on) {
 			className += ' on'
 		}
-
 		return (
 			<div
 				className={className}
