@@ -1,17 +1,401 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ItemRightContent should align where we specify 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.c1 {
+  position: relative;
+  margin: 0 10px 0 0;
+  border-radius: 50%;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.c2 {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+<div
+  className="ListItemWrapper c0"
+>
+  <div
+    className="ItemAvatar c1"
+  >
+    <div
+      className="avatar__wrapper online "
+    />
+  </div>
+  <div
+    className="ItemDetail c2"
+  />
+</div>
+`;
+
+exports[`List render send padding-bottom if its piled 1`] = `
+.c0 {
+  padding-bottom: 1.25em;
+}
+
+<div
+  className="item__list c0"
+/>
+`;
+
 exports[`List renders 1`] = `
 <div
   className="item__list "
 />
 `;
 
-exports[`ListItem renders 1`] = `
+exports[`List should render ItemRightContent with a title 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.c3 {
+  text-align: right;
+  min-width: 90px;
+}
+
+.c4 {
+  font-weight: 400;
+}
+
+.c2 {
+  font-size: 0.75em;
+}
+
 <div
-  className=" item__list__item "
+  className="item__list "
+>
+  <div>
+    <div
+      className="ListItemWrapper c0"
+    >
+      <div
+        className="ItemDetail c1"
+      >
+        <div
+          className="ItemSubTitle c2"
+        >
+          bar
+        </div>
+      </div>
+      <div
+        className="ItemRightContent c3"
+      >
+        <div
+          className="ItemTitle c4"
+        >
+          foo
+        </div>
+      </div>
+    </div>
+    <a>
+      Im also a list item
+    </a>
+  </div>
+</div>
+`;
+
+exports[`List should render listitems and divs 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.c2 {
+  font-weight: 500;
+}
+
+.c3 {
+  font-size: 0.75em;
+}
+
+<div
+  className="item__list "
+>
+  <div>
+    <div
+      className="ListItemWrapper c0"
+      title="foo"
+    >
+      <div
+        className="ItemDetail c1"
+      >
+        <div
+          className="ItemTitle c2"
+        >
+          foo
+        </div>
+        <div
+          className="ItemSubTitle c3"
+        >
+          bar
+        </div>
+      </div>
+    </div>
+    <a>
+      Im also a list item
+    </a>
+  </div>
+</div>
+`;
+
+exports[`List should render subTitle 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.c2 {
+  font-weight: 500;
+}
+
+.c3 {
+  font-size: 0.75em;
+}
+
+<div
+  className="item__list "
 >
   <div
-    className="item__details"
+    className="ListItemWrapper c0"
+    title="foo"
+  >
+    <div
+      className="ItemDetail c1"
+    >
+      <div
+        className="ItemTitle c2"
+      >
+        foo
+      </div>
+      <div
+        className="ItemSubTitle c3"
+      >
+        bar
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`List should render title 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.c2 {
+  font-weight: 500;
+}
+
+<div
+  className="item__list "
+>
+  <div
+    className="ListItemWrapper c0"
+    title="foo"
+  >
+    <div
+      className="ItemDetail c1"
+    >
+      <div
+        className="ItemTitle c2"
+      >
+        foo
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ListItem renders 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+<div
+  className="ListItemWrapper c0"
+>
+  <div
+    className="ItemDetail c1"
+  />
+</div>
+`;
+
+exports[`ListItem should align items 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+}
+
+.c1 {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+<div
+  className="ListItemWrapper c0"
+>
+  <div
+    className="ItemDetail c1"
+  />
+</div>
+`;
+
+exports[`ListItem should render non-arrays 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+<div
+  className="ListItemWrapper c0"
+>
+  <div
+    className="ItemDetail c1"
+  >
+    YOLO
+  </div>
+</div>
+`;
+
+exports[`ListItemAvatar should align where we specify 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.c1 {
+  position: relative;
+  margin: 0 10px 0 0;
+  border-radius: 50%;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.c2 {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+<div
+  className="ListItemWrapper c0"
+>
+  <div
+    className="ItemAvatar c1"
+  >
+    <div
+      className="avatar__wrapper online "
+    />
+  </div>
+  <div
+    className="ItemDetail c2"
   />
 </div>
 `;
