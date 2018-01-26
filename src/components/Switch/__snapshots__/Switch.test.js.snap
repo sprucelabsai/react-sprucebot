@@ -1,11 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`it renders 1`] = `
+.c1 {
+  background: none;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+.c1:before {
+  background-color: #808080;
+  border-radius: 50%;
+  bottom: 0;
+  content: '';
+  height: 1.125em;
+  left: 0.1875em;
+  margin: auto;
+  position: absolute;
+  right: auto;
+  top: 0;
+  width: 1.125em;
+  -webkit-transition: -webkit-transform 0.2s ease-out;
+  -webkit-transition: transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
+  -webkit-transition: -webkit-transform 0.2s ease-out;
+  -webkit-transition: transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
+}
+
+.c0 {
+  background-color: #d6d6d6;
+  border-radius: 0.75em;
+  display: inline-block;
+  height: 1.5em;
+  position: relative;
+  -webkit-transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s ease-out;
+  min-width: 3em;
+  width: 3em;
+  max-width: 3em;
+  -webkit-transition: -webkit-transform 0.2s ease-out;
+  -webkit-transition: transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
+}
+
 <div
-  className=" switch"
+  className="SwitchComp c0"
   onMouseUp={[Function]}
 >
-  <button
+  <span
+    className="c1"
     type="button"
   />
 </div>
