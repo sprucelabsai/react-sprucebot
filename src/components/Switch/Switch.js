@@ -8,6 +8,7 @@ const switchBtnColorOff = '#808080'
 const switchBtnColorOn = '#0094AD'
 
 const SwitchButton = styled.span.attrs({
+	className: 'SwitchButton',
 	type: 'button'
 })`
 	background: none;
@@ -41,17 +42,14 @@ const SwitchButton = styled.span.attrs({
 	}
 `
 const SwitchComp = styled.div.attrs({
-	className: 'SwitchComp'
+	className: ({ className }) => `Switch switch ${className || ''}`
 })`
 	background-color: ${switchContainerColorOff};
 	border-radius: 0.75em;
-	display: inline-block;
 	height: 1.5em;
 	position: relative;
 	transition: background-color 0.3s ease-out;
-	min-width: 3em;
 	width: 3em;
-	max-width: 3em;
 	${props =>
 		props.on
 			? `background-color: ${switchContainerColorOn};`
