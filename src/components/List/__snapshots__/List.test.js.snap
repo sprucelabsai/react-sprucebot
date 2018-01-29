@@ -29,17 +29,17 @@ exports[`ItemRightContent should align where we specify 1`] = `
 }
 
 <div
-  className="ListItemWrapper c0"
+  className=" ListItemWrapper item__list__item  c0"
 >
   <div
-    className="ItemAvatar c1"
+    className="ItemAvatar avatar__outer__wrapper c1"
   >
     <div
       className="avatar__wrapper online "
     />
   </div>
   <div
-    className="ItemDetail c2"
+    className="ItemDetail item__details c2"
   />
 </div>
 `;
@@ -50,13 +50,13 @@ exports[`List render send padding-bottom if its piled 1`] = `
 }
 
 <div
-  className="item__list c0"
+  className="List item__list c0"
 />
 `;
 
 exports[`List renders 1`] = `
 <div
-  className="item__list "
+  className="List item__list "
 />
 `;
 
@@ -81,6 +81,14 @@ exports[`List should render ItemRightContent with a title 1`] = `
 .c3 {
   text-align: right;
   min-width: 90px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
 }
 
 .c4 {
@@ -92,26 +100,26 @@ exports[`List should render ItemRightContent with a title 1`] = `
 }
 
 <div
-  className="item__list "
+  className="List item__list "
 >
   <div>
     <div
-      className="ListItemWrapper c0"
+      className=" ListItemWrapper item__list__item  c0"
     >
       <div
-        className="ItemDetail c1"
+        className="ItemDetail item__details c1"
       >
         <div
-          className="ItemSubTitle c2"
+          className="ItemSubTitle sub__title c2"
         >
           bar
         </div>
       </div>
       <div
-        className="ItemRightContent c3"
+        className="ItemRightContent content__right c3"
       >
         <div
-          className="ItemTitle c4"
+          className="ItemTitle title c4"
         >
           foo
         </div>
@@ -151,23 +159,23 @@ exports[`List should render listitems and divs 1`] = `
 }
 
 <div
-  className="item__list "
+  className="List item__list "
 >
   <div>
     <div
-      className="ListItemWrapper c0"
+      className=" ListItemWrapper item__list__item  c0"
       title="foo"
     >
       <div
-        className="ItemDetail c1"
+        className="ItemDetail item__details c1"
       >
         <div
-          className="ItemTitle c2"
+          className="ItemTitle title c2"
         >
           foo
         </div>
         <div
-          className="ItemSubTitle c3"
+          className="ItemSubTitle sub__title c3"
         >
           bar
         </div>
@@ -207,22 +215,22 @@ exports[`List should render subTitle 1`] = `
 }
 
 <div
-  className="item__list "
+  className="List item__list "
 >
   <div
-    className="ListItemWrapper c0"
+    className=" ListItemWrapper item__list__item  c0"
     title="foo"
   >
     <div
-      className="ItemDetail c1"
+      className="ItemDetail item__details c1"
     >
       <div
-        className="ItemTitle c2"
+        className="ItemTitle title c2"
       >
         foo
       </div>
       <div
-        className="ItemSubTitle c3"
+        className="ItemSubTitle sub__title c3"
       >
         bar
       </div>
@@ -254,17 +262,17 @@ exports[`List should render title 1`] = `
 }
 
 <div
-  className="item__list "
+  className="List item__list "
 >
   <div
-    className="ListItemWrapper c0"
+    className=" ListItemWrapper item__list__item  c0"
     title="foo"
   >
     <div
-      className="ItemDetail c1"
+      className="ItemDetail item__details c1"
     >
       <div
-        className="ItemTitle c2"
+        className="ItemTitle title c2"
       >
         foo
       </div>
@@ -292,10 +300,10 @@ exports[`ListItem renders 1`] = `
 }
 
 <div
-  className="ListItemWrapper c0"
+  className=" ListItemWrapper item__list__item  c0"
 >
   <div
-    className="ItemDetail c1"
+    className="ItemDetail item__details c1"
   />
 </div>
 `;
@@ -319,10 +327,10 @@ exports[`ListItem should align items 1`] = `
 }
 
 <div
-  className="ListItemWrapper c0"
+  className=" ListItemWrapper item__list__item  c0"
 >
   <div
-    className="ItemDetail c1"
+    className="ItemDetail item__details c1"
   />
 </div>
 `;
@@ -346,10 +354,10 @@ exports[`ListItem should render non-arrays 1`] = `
 }
 
 <div
-  className="ListItemWrapper c0"
+  className=" ListItemWrapper item__list__item  c0"
 >
   <div
-    className="ItemDetail c1"
+    className="ItemDetail item__details c1"
   >
     YOLO
   </div>
@@ -385,17 +393,17 @@ exports[`ListItemAvatar should align where we specify 1`] = `
 }
 
 <div
-  className="ListItemWrapper c0"
+  className=" ListItemWrapper item__list__item  c0"
 >
   <div
-    className="ItemAvatar c1"
+    className="ItemAvatar avatar__outer__wrapper c1"
   >
     <div
       className="avatar__wrapper online "
     />
   </div>
   <div
-    className="ItemDetail c2"
+    className="ItemDetail item__details c2"
   />
 </div>
 `;

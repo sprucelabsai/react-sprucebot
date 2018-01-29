@@ -37,25 +37,22 @@ exports[`it renders 1`] = `
 .c0 {
   background-color: #d6d6d6;
   border-radius: 0.75em;
-  display: inline-block;
   height: 1.5em;
   position: relative;
   -webkit-transition: background-color 0.3s ease-out;
   transition: background-color 0.3s ease-out;
-  min-width: 3em;
   width: 3em;
-  max-width: 3em;
   -webkit-transition: -webkit-transform 0.2s ease-out;
   -webkit-transition: transform 0.2s ease-out;
   transition: transform 0.2s ease-out;
 }
 
 <div
-  className="SwitchComp c0"
+  className="Switch switch  c0"
   onMouseUp={[Function]}
 >
   <span
-    className="c1"
+    className="SwitchButton c1"
     type="button"
   />
 </div>

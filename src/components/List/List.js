@@ -4,13 +4,16 @@ import PropTypes from 'prop-types'
 import Avatar from '../Avatar/Avatar'
 
 export const List = styled.div.attrs({
-	className: 'item__list'
+	className: 'List item__list'
 })`
 	${props => (props.pile ? 'padding-bottom: 1.25em' : void 0)};
 `
 
 const ListItemWrapper = styled.div.attrs({
-	className: 'ListItemWrapper'
+	className: ({ className, online }) =>
+		`${className || ''} ListItemWrapper item__list__item ${
+			online ? '' : 'offline'
+		}`
 })`
 	display: flex;
 	${props =>
@@ -21,7 +24,7 @@ const ListItemWrapper = styled.div.attrs({
 `
 
 const ItemAvatar = styled.div.attrs({
-	className: 'ItemAvatar'
+	className: 'ItemAvatar avatar__outer__wrapper'
 })`
 	position: relative;
 	margin: 0 10px 0 0;
@@ -33,33 +36,29 @@ const ItemAvatar = styled.div.attrs({
 `
 
 const ItemDetail = styled.div.attrs({
-	className: 'ItemDetail'
+	className: 'ItemDetail item__details'
 })`
 	flex-grow: 1;
 `
 
 const ItemRightContent = styled.div.attrs({
-	className: 'ItemRightContent'
+	className: 'ItemRightContent content__right'
 })`
 	text-align: right;
 	min-width: 90px;
-`
-
-const ItemRightTitle = styled.div.attrs({
-	className: 'ItemRightTitle'
-})`
-	flex-grow: 1;
+	display: flex;
+	align-items: flex-end;
 `
 
 const ItemTitle = styled.div.attrs({
-	className: 'ItemTitle'
+	className: 'ItemTitle title'
 })`
 	${props =>
 		props.weight ? `font-weight: ${props.weight}` : `font-weight: 500;`};
 `
 
 const ItemSubTitle = styled.div.attrs({
-	className: 'ItemSubTitle'
+	className: 'ItemSubTitle sub__title'
 })`
 	font-size: 0.75em;
 `
