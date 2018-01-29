@@ -2,6 +2,62 @@ import styled from 'styled-components'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+const switchContainerColorOff = '#d6d6d6'
+const switchContainerColorOn = '#00C8EB'
+const switchBtnColorOff = '#808080'
+const switchBtnColorOn = '#0094AD'
+
+const SwitchButton = styled.span.attrs({
+	type: 'button'
+})`
+	background: none;
+	bottom: 0;
+	height: 100%;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100%;
+	&:before {
+		background-color: ${switchBtnColorOff};
+		border-radius: 50%;
+		bottom: 0;
+		content: '';
+		height: 1.125em;
+		left: 0.1875em;
+		margin: auto;
+		position: absolute;
+		right: auto;
+		top: 0;
+		width: 1.125em;
+		transition: transform 0.2s ease-out;
+		${props =>
+			props.on
+				? `transform: translate(1.4375em, 0);
+				background-color: ${switchBtnColorOn}`
+				: `transition: transform 0.2s ease-out;`};
+	}
+`
+const SwitchComp = styled.div.attrs({
+	className: 'SwitchComp'
+})`
+	background-color: ${switchContainerColorOff};
+	border-radius: 0.75em;
+	display: inline-block;
+	height: 1.5em;
+	position: relative;
+	transition: background-color 0.3s ease-out;
+	min-width: 3em;
+	width: 3em;
+	max-width: 3em;
+	${props =>
+		props.on
+			? `background-color: ${switchContainerColorOn};`
+			: `transition: transform 0.2s ease-out;`};
+`
+
 export default class Switch extends Component {
 	constructor(props) {
 		super(props)
@@ -33,25 +89,19 @@ export default class Switch extends Component {
 	render() {
 		const props = Object.assign({}, this.props)
 
-		let className = (props.className || '') + ' switch'
-
 		delete props.className
 		delete props.on
 		delete props.onChange
 		delete props.children
 
-		// are we on?
-		if (this.props.on) {
-			className += ' on'
-		}
 		return (
-			<div
-				className={className}
+			<SwitchComp
+				on={this.props.on}
 				{...props}
 				onMouseUp={this.onChange.bind(this)}
 			>
-				<button type="button" />
-			</div>
+				<SwitchButton on={this.props.on} />
+			</SwitchComp>
 		)
 	}
 }
@@ -62,6 +112,5 @@ Switch.propTypes = {
 }
 
 Switch.defaultProps = {
-	on: false,
-	onChange: e => {}
+	on: false
 }

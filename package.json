@@ -1,6 +1,6 @@
 {
     "name": "react-sprucebot",
-    "version": "0.10.15",
+    "version": "0.10.16",
     "main": "lib/Sprucebot.js",
     "description": "React components for your Sprucebot Skill 💪🏼",
     "keywords": [
@@ -44,7 +44,8 @@
         "jest": "^22.0.5",
         "jest-styled-components": "^4.9.0",
         "prettier": "^1.7.4",
-        "react-test-renderer": "^16.0.0"
+        "react-test-renderer": "^16.0.0",
+        "sinon": "^4.2.2"
     },
     "peerDependencies": {},
     "dependencies": {
@@ -66,9 +67,14 @@
         "styled-components": "^2.2.2"
     },
     "jest": {
-        "roots": ["<rootDir>/src/"],
+        "roots": [
+            "<rootDir>/src/"
+        ],
         "coverageDirectory": "./coverage/",
         "collectCoverage": true,
-        "coveragePathIgnorePatterns": ["<rootDir>/lib/", "<rootDir>/node_modules/"]
+        "coveragePathIgnorePatterns": [
+            "<rootDir>/lib/",
+            "<rootDir>/node_modules/"
+        ]
     }
 }
