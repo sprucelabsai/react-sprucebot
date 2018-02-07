@@ -81,9 +81,21 @@ export default class ImageCropper extends Component {
 		} else {
 			const crop = this.state.crop
 			const pixelCrop = this.cropper.getPixelCrop(crop)
+			const widthHeight =
+				image.height < image.width ? image.height / 2 : image.width / 2
+			const width = widthHeight / image.width * 100
+			const height = widthHeight / image.height * 100
+			const x = width >= height ? width / 2 : width
+			const y = width <= height ? height / 2 : height
 
 			this.setState({
-				crop,
+				crop: {
+					x,
+					y,
+					aspect: 1,
+					width,
+					height
+				},
 				pixelCrop,
 				loading: false
 			})
