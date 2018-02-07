@@ -68,20 +68,16 @@ const Page = Wrapped => {
 			}
 
 			const state = store.getState()
-			props = {
-				...props,
-				...state
-			}
 
-			if (props.auth && !props.auth.error) {
-				props.auth.role =
-					(props.config.DEV_MODE && getCookie('devRole', req, res)) ||
-					props.auth.role
+			if (state.auth && !state.auth.error) {
+				state.auth.role =
+					(state.config.DEV_MODE && getCookie('devRole', req, res)) ||
+					state.auth.role
 			}
 
 			if (ConnectedWrapped.getInitialProps) {
 				const args = Array.from(arguments)
-				args[0] = { ...props, ...args[0] }
+				args[0] = { ...args[0], ...state }
 				props = {
 					...props,
 					...(await ConnectedWrapped.getInitialProps.apply(this, args))
@@ -96,13 +92,13 @@ const Page = Wrapped => {
 			} else if (
 				!redirect &&
 				!props.public &&
-				(!props.auth || !props.auth.role || props.auth.error)
+				(!state.auth || !state.auth.role || state.auth.error)
 			) {
 				// no redirect is set, we're not public, but auth failed
 				redirect = '/unauthorized'
 			} else if (!redirect && !props.public) {
 				// all things look good, lets just make sure we're in the right area (owner, teammate, or guest)
-				const role = props.auth.role
+				const role = state.auth.role
 				const firstPart = props.pathname.split('/')[1]
 
 				const { jwt, ...rest } = query
@@ -130,7 +126,7 @@ const Page = Wrapped => {
 			// if we are /unauthorized, don't have a cookie, but have NOT done cookie check
 			if (
 				props.pathname === '/unauthorized' &&
-				(!props.auth || !props.auth.role)
+				(!state.auth || !state.auth.role)
 			) {
 				props.attemptingReAuth = true
 			}

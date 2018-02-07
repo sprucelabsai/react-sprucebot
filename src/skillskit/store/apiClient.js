@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-fetch'
 import https from 'https'
 import http from 'http'
+import qs from 'qs'
 
 const methods = ['GET', 'POST', 'PUT', 'PATCH', 'DEL']
 
@@ -14,7 +15,7 @@ class ApiClient {
 		methods.forEach(method => {
 			this[method.toLowerCase()] = (path, options = {}) =>
 				new Promise(async (resolve, reject) => {
-					const { body } = options
+					const { body, query } = options
 					try {
 						let headers = {
 							Accept: 'application/json',
@@ -39,8 +40,18 @@ class ApiClient {
 							fetchOptions.headers['x-skill-jwt'] = this.jwt
 						}
 
+						let fetchUrl = `${endpoint}${path}`
+
+						if (query) {
+							fetchUrl =
+								// determine if we're appending or creating a query string
+								fetchUrl.indexOf('?') > -1
+									? `${fetchUrl}${qs.stringify(query)}`
+									: `${fetchUrl}?${qs.stringify(query)}`
+						}
+
 						// Start network request
-						const response = await fetch(`${endpoint}${path}`, fetchOptions)
+						const response = await fetch(fetchUrl, fetchOptions)
 						const json = await response.json()
 						if (!response.ok) {
 							console.log('Request not okay', response.status, json)
