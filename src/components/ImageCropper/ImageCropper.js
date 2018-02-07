@@ -209,8 +209,6 @@ export default class ImageCropper extends Component {
 
 		const cropSrc = base64Image || src
 
-		console.log(crop)
-
 		return (
 			<div className="image_cropper">
 				{errorMessage && <BotText>{errorMessage}</BotText>}
