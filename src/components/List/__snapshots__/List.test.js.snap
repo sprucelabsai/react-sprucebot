@@ -24,6 +24,7 @@ exports[`ItemRightContent should align where we specify 1`] = `
 
 .c2 {
   -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
@@ -74,6 +75,7 @@ exports[`List should render ItemRightContent with a title 1`] = `
 
 .c1 {
   -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
@@ -146,6 +148,7 @@ exports[`List should render listitems and divs 1`] = `
 
 .c1 {
   -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
@@ -202,6 +205,7 @@ exports[`List should render subTitle 1`] = `
 
 .c1 {
   -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
@@ -253,6 +257,7 @@ exports[`List should render title 1`] = `
 
 .c1 {
   -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
@@ -295,6 +300,7 @@ exports[`ListItem renders 1`] = `
 
 .c1 {
   -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
@@ -322,6 +328,7 @@ exports[`ListItem should align items 1`] = `
 
 .c1 {
   -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
@@ -349,6 +356,7 @@ exports[`ListItem should render non-arrays 1`] = `
 
 .c1 {
   -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
@@ -388,6 +396,7 @@ exports[`ListItemAvatar should align where we specify 1`] = `
 
 .c2 {
   -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
