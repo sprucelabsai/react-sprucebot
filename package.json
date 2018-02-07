@@ -50,6 +50,7 @@
     "peerDependencies": {},
     "dependencies": {
         "babel-polyfill": "^6.26.0",
+        "babel-register": "^6.26.0",
         "cookies": "^0.7.1",
         "js-cookies": "^1.0.4",
         "moment": "^2.19.3",
