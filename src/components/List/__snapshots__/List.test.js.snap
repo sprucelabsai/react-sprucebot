@@ -48,6 +48,9 @@ exports[`ItemRightContent should align where we specify 1`] = `
 exports[`List render send padding-bottom if its piled 1`] = `
 .c0 {
   padding-bottom: 1.25em;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 <div
@@ -56,13 +59,25 @@ exports[`List render send padding-bottom if its piled 1`] = `
 `;
 
 exports[`List renders 1`] = `
+.c0 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
 <div
-  className="List item__list "
+  className="List item__list c0"
 />
 `;
 
 exports[`List should render ItemRightContent with a title 1`] = `
 .c0 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -73,14 +88,14 @@ exports[`List should render ItemRightContent with a title 1`] = `
   align-items: center;
 }
 
-.c1 {
+.c2 {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
 
-.c3 {
+.c4 {
   text-align: right;
   display: -webkit-box;
   display: -webkit-flex;
@@ -92,35 +107,35 @@ exports[`List should render ItemRightContent with a title 1`] = `
   align-items: flex-end;
 }
 
-.c4 {
+.c5 {
   font-weight: 400;
 }
 
-.c2 {
+.c3 {
   font-size: 0.75em;
 }
 
 <div
-  className="List item__list "
+  className="List item__list c0"
 >
   <div>
     <div
-      className=" ListItemWrapper item__list__item  c0"
+      className=" ListItemWrapper item__list__item  c1"
     >
       <div
-        className="ItemDetail item__details c1"
+        className="ItemDetail item__details c2"
       >
         <div
-          className="ItemSubTitle sub__title c2"
+          className="ItemSubTitle sub__title c3"
         >
           bar
         </div>
       </div>
       <div
-        className="ItemRightContent content__right c3"
+        className="ItemRightContent content__right c4"
       >
         <div
-          className="ItemTitle title c4"
+          className="ItemTitle title c5"
         >
           foo
         </div>
@@ -135,6 +150,12 @@ exports[`List should render ItemRightContent with a title 1`] = `
 
 exports[`List should render listitems and divs 1`] = `
 .c0 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -145,39 +166,39 @@ exports[`List should render listitems and divs 1`] = `
   align-items: center;
 }
 
-.c1 {
+.c2 {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
 
-.c2 {
+.c3 {
   font-weight: 500;
 }
 
-.c3 {
+.c4 {
   font-size: 0.75em;
 }
 
 <div
-  className="List item__list "
+  className="List item__list c0"
 >
   <div>
     <div
-      className=" ListItemWrapper item__list__item  c0"
+      className=" ListItemWrapper item__list__item  c1"
       title="foo"
     >
       <div
-        className="ItemDetail item__details c1"
+        className="ItemDetail item__details c2"
       >
         <div
-          className="ItemTitle title c2"
+          className="ItemTitle title c3"
         >
           foo
         </div>
         <div
-          className="ItemSubTitle sub__title c3"
+          className="ItemSubTitle sub__title c4"
         >
           bar
         </div>
@@ -192,6 +213,12 @@ exports[`List should render listitems and divs 1`] = `
 
 exports[`List should render subTitle 1`] = `
 .c0 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -202,38 +229,38 @@ exports[`List should render subTitle 1`] = `
   align-items: center;
 }
 
-.c1 {
+.c2 {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
 
-.c2 {
+.c3 {
   font-weight: 500;
 }
 
-.c3 {
+.c4 {
   font-size: 0.75em;
 }
 
 <div
-  className="List item__list "
+  className="List item__list c0"
 >
   <div
-    className=" ListItemWrapper item__list__item  c0"
+    className=" ListItemWrapper item__list__item  c1"
     title="foo"
   >
     <div
-      className="ItemDetail item__details c1"
+      className="ItemDetail item__details c2"
     >
       <div
-        className="ItemTitle title c2"
+        className="ItemTitle title c3"
       >
         foo
       </div>
       <div
-        className="ItemSubTitle sub__title c3"
+        className="ItemSubTitle sub__title c4"
       >
         bar
       </div>
@@ -244,6 +271,12 @@ exports[`List should render subTitle 1`] = `
 
 exports[`List should render title 1`] = `
 .c0 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -254,29 +287,29 @@ exports[`List should render title 1`] = `
   align-items: center;
 }
 
-.c1 {
+.c2 {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
 
-.c2 {
+.c3 {
   font-weight: 500;
 }
 
 <div
-  className="List item__list "
+  className="List item__list c0"
 >
   <div
-    className=" ListItemWrapper item__list__item  c0"
+    className=" ListItemWrapper item__list__item  c1"
     title="foo"
   >
     <div
-      className="ItemDetail item__details c1"
+      className="ItemDetail item__details c2"
     >
       <div
-        className="ItemTitle title c2"
+        className="ItemTitle title c3"
       >
         foo
       </div>
