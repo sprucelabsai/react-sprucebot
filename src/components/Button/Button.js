@@ -17,7 +17,6 @@ export default class Button extends Component {
 			className,
 			children,
 			submit,
-			href,
 			remove,
 			toggle,
 			...props
@@ -53,7 +52,7 @@ export default class Button extends Component {
 		}
 
 		// if this button has a href or is a "remove" button, make it an anchor
-		const Tag = href || remove ? 'a' : tag
+		const Tag = props.href || remove ? 'a' : tag
 
 		return (
 			<Tag className={`${btnClass} ${className || ''}`} {...props}>

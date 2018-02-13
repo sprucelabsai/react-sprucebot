@@ -45,7 +45,6 @@ const ItemRightContent = styled.div.attrs({
 	className: 'ItemRightContent content__right'
 })`
 	text-align: right;
-	min-width: 90px;
 	display: flex;
 	align-items: flex-end;
 `
