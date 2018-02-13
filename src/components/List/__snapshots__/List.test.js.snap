@@ -82,7 +82,6 @@ exports[`List should render ItemRightContent with a title 1`] = `
 
 .c3 {
   text-align: right;
-  min-width: 90px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
