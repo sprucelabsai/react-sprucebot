@@ -3,7 +3,7 @@ import https from 'https'
 import http from 'http'
 import qs from 'qs'
 
-const methods = ['GET', 'POST', 'PUT', 'PATCH', 'DEL']
+const methods = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
 
 class ApiClient {
 	constructor(endpoint, { allowSelfSignedCerts = false }) {
