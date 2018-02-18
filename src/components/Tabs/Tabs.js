@@ -11,7 +11,8 @@ export class Tabs extends Component {
 		const children = React.Children.toArray(props.children)
 
 		// default to first selected item
-		let selected = children[0] && children[0].key
+		const idx = props.selected || 0
+		let selected = children[idx] && children[idx].key
 
 		if (children.length > 0) {
 			children.some(tab => {
@@ -37,7 +38,7 @@ export class Tabs extends Component {
 			typeof nextProps.selected === 'number' &&
 			nextProps.selected !== this.state.selected
 		) {
-			children.forEach((tab, idx) => {
+			newState.children.forEach((tab, idx) => {
 				if (idx === nextProps.selected) {
 					newState.selected = tab.key
 				}
