@@ -1,7 +1,11 @@
+function postMessage(message) {
+	return window.parent.postMessage(JSON.stringify(message), '*')
+}
+
 export default {
 	height: 0,
 	forceAuth: function() {
-		window.parent.postMessage('Skill:ForceAuth', '*')
+		postMessage('Skill:ForceAuth')
 	},
 	resized: function() {
 		var height = 0
@@ -25,38 +29,32 @@ export default {
 			return bottom
 		}
 
-		Array.from(
-			window.document.body.getElementsByClassName('container')
-		).forEach(container => {
-			let bottom = getBottom(container)
-			if (bottom > height) {
-				height = bottom
-			}
-		})
+		window.document
+			.querySelectorAll('.container,.dialog')
+			.forEach(container => {
+				let bottom = getBottom(container)
+				if (bottom > height) {
+					height = bottom
+				}
+			})
 
 		if (height != this.height) {
 			this.height = height
-			window.parent.postMessage(
-				{
-					name: 'Skill:Resized',
-					height
-				},
-				'*'
-			)
+			postMessage({
+				name: 'Skill:Resized',
+				height
+			})
 		}
 	},
 	back: function() {
-		window.parent.postMessage('Skill:Back', '*')
+		postMessage('Skill:Back')
 	},
 	ready: function() {
 		this.resized()
-		window.parent.postMessage(
-			{
-				name: 'Skill:Loaded',
-				url: window.location.href
-			},
-			'*'
-		)
+		postMessage({
+			name: 'Skill:Loaded',
+			url: window.location.href
+		})
 		this.resizedInterval = setInterval(this.resized.bind(this), 50)
 	}
 }

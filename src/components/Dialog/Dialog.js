@@ -27,6 +27,7 @@ export default class Dialog extends Component {
 		this.showing = this.props.show
 	}
 	position() {
+		if (!this.wrapper) return
 		// don't resize if we are not showing
 		let positionedParent
 		let node = this.wrapper.parentNode
@@ -85,7 +86,7 @@ export default class Dialog extends Component {
 		window.removeEventListener('resize', this.position)
 	}
 	render() {
-		const { tag, children, className, show, ...props } = this.props
+		const { tag, children, className, show, onTapClose, ...props } = this.props
 		const { top, left, opacity } = this.state
 		const Tag = tag
 
@@ -116,11 +117,11 @@ export default class Dialog extends Component {
 							className={`dialog ${className || ''} ${show ? 'on' : 'off'}`}
 							{...props}
 						>
-							{this.props.onTapClose && (
+							{onTapClose && (
 								<Button
 									className="btn__close_dialog"
 									remove
-									onClick={this.props.onTapClose}
+									onClick={onTapClose}
 								/>
 							)}
 							{children}
