@@ -7,6 +7,9 @@ export const List = styled.div.attrs({
 	className: 'List item__list'
 })`
 	${props => (props.pile ? 'padding-bottom: 1.25em' : void 0)};
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	word-break: break-word;
 `
 
 const ListItemWrapper = styled.div.attrs({
