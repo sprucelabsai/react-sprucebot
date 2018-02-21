@@ -62,6 +62,8 @@ export default class Switch extends Component {
 		this.state = {
 			on: !!props.on
 		}
+
+		this.onChange = this.onChange.bind(this)
 	}
 	onChange(e) {
 		// toggle on state of button
@@ -93,11 +95,7 @@ export default class Switch extends Component {
 		delete props.children
 
 		return (
-			<SwitchComp
-				on={this.props.on}
-				{...props}
-				onMouseUp={this.onChange.bind(this)}
-			>
+			<SwitchComp on={this.props.on} {...props} onClick={this.onChange}>
 				<SwitchButton on={this.props.on} />
 			</SwitchComp>
 		)

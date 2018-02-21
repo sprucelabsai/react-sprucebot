@@ -49,7 +49,7 @@ exports[`it renders 1`] = `
 
 <div
   className="Switch switch  c0"
-  onMouseUp={[Function]}
+  onClick={[Function]}
 >
   <span
     className="SwitchButton c1"
