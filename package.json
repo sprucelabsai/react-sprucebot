@@ -54,6 +54,7 @@
     "dependencies": {
         "babel-polyfill": "^6.26.0",
         "babel-register": "^6.26.0",
+        "classnames": "^2.2.5",
         "cookies": "^0.7.1",
         "imagesloaded": "^4.1.4",
         "js-cookies": "^1.0.4",
