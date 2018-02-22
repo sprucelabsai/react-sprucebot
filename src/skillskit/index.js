@@ -15,22 +15,17 @@ export default {
 
 			var body = document.body
 			var docEl = document.documentElement
-			const computedStyle = window.getComputedStyle(elem)
 
 			var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop
 			var clientTop = docEl.clientTop || body.clientTop || 0
 			var top = box.top + scrollTop - clientTop
-			var bottom =
-				top +
-				elem.clientHeight +
-				parseFloat(computedStyle.paddingTop) +
-				parseFloat(computedStyle.paddingBottom)
+			var bottom = top + elem.scrollHeight
 
 			return bottom
 		}
 
 		window.document
-			.querySelectorAll('.container,.dialog')
+			.querySelectorAll('.container,.dialog_underlay')
 			.forEach(container => {
 				let bottom = getBottom(container)
 				if (bottom > height) {
