@@ -1,72 +1,98 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
-import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
 import Measure from 'react-measure'
 import Button from '../Button/Button'
 
-const DialogUnderlay = styled.div.attrs({
-	className: ({ show }) =>
-		classnames('dialog_underlay', show ? 'on' : 'off', 'container')
-})`
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	z-index: 1;
-	background-color: rgba(0, 0, 0, 0.6);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: ${({ height }) => height + 40}px;
-	padding: 20px;
-`
-
-const DialogContainer = styled.div.attrs({
-	className: ({ show, className }) =>
-		classnames('dialog', className, show ? 'on' : 'off')
-})`
-	transition: opacity 1s ease-in-out;
-	opacity: ${({ opacity }) => opacity || 0};
-	background-color: #fff;
-	border-radius: 4px;
-	z-index: 2;
-	padding: 20px;
-	margin: auto -20px;
-	width: 90%;
-	max-width: 500px;
-`
-const DialogCloseButton = styled(Button).attrs({
-	className: 'btn__close_dialog',
-	remove: true
-})`
-	display: block;
-	position: absolute;
-	top: 15px;
-	right: 20px;
-`
-
 export default class Dialog extends Component {
 	constructor(props) {
 		super(props)
+		this.showing = false
+		this.wrapper = false
 		this.state = {
+			top: -1,
+			left: -1,
 			width: -1,
-			height: 500
+			height: 500,
+			opacity: 0
 		}
+
+		// for resize callbacks
+		this.position = this.position.bind(this)
 	}
-	componentWillReceiveProps(nextProps) {
-		if (this.props.show !== nextProps.show) {
-			setTimeout(() => this.setState({ opacity: nextProps.show ? 1 : 0 }), 100)
+	componentDidUpdate(prevProps, prevState) {
+		if (!this.showing && this.props.show) {
+			this.position()
 		}
+		this.showing = this.props.show
+	}
+	position() {
+		if (!this.wrapper) return
+		// don't resize if we are not showing
+		let positionedParent
+		let node = this.wrapper.parentNode
+
+		while (node && node !== document.body) {
+			const pos = window
+				.getComputedStyle(node)
+				.getPropertyValue('position')
+				.toLowerCase()
+
+			if (pos === 'relative' || pos === 'absolute') {
+				positionedParent = node
+				node = null
+			} else {
+				node = node.parentNode
+			}
+		}
+
+		let screenWidth,
+			scrollTop = document.body.scrollTop
+
+		const w = window,
+			d = document,
+			e = d.documentElement,
+			g = d.getElementsByTagName('body')[0],
+			screenHeight = w.innerHeight || e.clientHeight || g.clientHeight
+
+		if (!positionedParent) {
+			screenWidth = w.innerWidth || e.clientWidth || g.clientWidth
+		} else {
+			screenWidth = positionedParent.offsetWidth
+			scrollTop = document.body.scrollTop - positionedParent.offsetTop
+		}
+
+		// center horizontally
+		const width =
+			this.state.width > 0 ? this.state.width : Math.min(500, screenWidth * 0.9)
+		const left = (screenWidth - width) / 2
+		const top =
+			this.state.height >= screenHeight - 20
+				? 20
+				: scrollTop + (screenHeight - this.state.height) / 2
+
+		this.setState({ left, top })
 	}
 	setSize({ width, height }) {
 		this.setState({ width, height })
+
+		// give dialog time to position itself before being shown
+		if (this.state.opacity === 0) {
+			this.position()
+			setTimeout(() => this.setState({ opacity: 1 }), 0)
+		}
+	}
+	componentDidMount() {
+		window.addEventListener('resize', this.position)
+		this.position()
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.position)
 	}
 	render() {
 		const { tag, children, className, show, onTapClose, ...props } = this.props
-		const { opacity, height } = this.state
+		const { top, left, opacity } = this.state
 		const Tag = tag
 
 		if (!show) {
@@ -74,7 +100,12 @@ export default class Dialog extends Component {
 		}
 
 		return (
-			<DialogUnderlay show={show} height={height}>
+			<div
+				ref={node => {
+					this.wrapper = node
+				}}
+			>
+				<div className={`dialog_underlay ${show ? 'on' : 'off'}`} />
 				<Measure
 					bounds
 					onResize={contentRect => {
@@ -85,19 +116,24 @@ export default class Dialog extends Component {
 					}}
 				>
 					{({ measureRef }) => (
-						<DialogContainer
-							innerRef={measureRef}
-							className={className}
-							show={show}
-							opacity={opacity}
+						<Tag
+							style={{ top, left, opacity }}
+							ref={measureRef}
+							className={`dialog ${className || ''} ${show ? 'on' : 'off'}`}
 							{...props}
 						>
-							{onTapClose && <DialogCloseButton onClick={onTapClose} />}
+							{onTapClose && (
+								<Button
+									className="btn__close_dialog"
+									remove
+									onClick={onTapClose}
+								/>
+							)}
 							{children}
-						</DialogContainer>
+						</Tag>
 					)}
 				</Measure>
-			</DialogUnderlay>
+			</div>
 		)
 	}
 }

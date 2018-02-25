@@ -25,9 +25,9 @@ export default {
 		}
 
 		window.document
-			.querySelectorAll('.container,.dialog_underlay')
+			.querySelectorAll('.container, .dialog')
 			.forEach(container => {
-				let bottom = getBottom(container)
+				let bottom = getBottom(container) + 20
 				if (bottom > height) {
 					height = bottom
 				}
