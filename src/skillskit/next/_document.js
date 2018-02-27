@@ -6,10 +6,9 @@ export default class MyDocument extends Document {
 	static async getInitialProps({ renderPage, query, store }) {
 		// Build stylesheets from styled-components
 		const sheet = new ServerStyleSheet()
-		const auth = store && store.getState().auth
-		const config = store && store.getState().config
+		const { auth, config } = store && store.getState()
 
-		let whitelabel = false
+		let whitelabel = config.WHITELABEL_STYLESHEET_URL
 
 		//we have any whitelabelling happening?
 		if (
