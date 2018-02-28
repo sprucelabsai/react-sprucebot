@@ -8,7 +8,7 @@ export default class MyDocument extends Document {
 		const sheet = new ServerStyleSheet()
 		const { auth, config } = store && store.getState()
 
-		let whitelabel = config.WHITELABEL_STYLESHEET_URL
+		let whitelabel = config.WHITELABEL
 
 		//we have any whitelabelling happening?
 		if (
