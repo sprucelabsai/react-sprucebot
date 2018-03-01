@@ -31,7 +31,7 @@ export default class MyDocument extends Document {
 
 	render() {
 		return (
-			<html className="skill">
+			<html className={`skill skill-${this.props.config.SLUG}`}>
 				<Head>
 					<title>{this.props.name}</title>
 					<meta name="viewport" content="width=device-width, initial-scale=1" />
