@@ -95,7 +95,17 @@ export default class Switch extends Component {
 		delete props.children
 
 		return (
-			<SwitchComp on={this.props.on} {...props} onClick={this.onChange}>
+			<SwitchComp
+				on={this.props.on}
+				{...props}
+				tabIndex={0}
+				onClick={this.onChange}
+				onKeyDown={e => {
+					if (e.keyCode === 13) {
+						this.onChange(e)
+					}
+				}}
+			>
 				<SwitchButton on={this.props.on} />
 			</SwitchComp>
 		)
