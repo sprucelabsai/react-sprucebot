@@ -11,6 +11,7 @@ export default class MyDocument extends Document {
 		let whitelabel = config.WHITELABEL
 
 		//we have any whitelabelling happening?
+		let orgWhitelabel
 		if (
 			auth &&
 			auth.Location &&
@@ -18,7 +19,7 @@ export default class MyDocument extends Document {
 			auth.Location.Organization.allowWhiteLabelling &&
 			auth.Location.Organization.whiteLabellingStylesheetUrl
 		) {
-			whitelabel = auth.Location.Organization.whiteLabellingStylesheetUrl
+			orgWhitelabel = auth.Location.Organization.whiteLabellingStylesheetUrl
 		}
 
 		const page = renderPage(App => props =>
@@ -26,12 +27,16 @@ export default class MyDocument extends Document {
 		)
 		const styleTags = sheet.getStyleElement()
 
-		return { ...page, styleTags, whitelabel, auth, config }
+		return { ...page, styleTags, whitelabel, auth, config, orgWhitelabel }
 	}
 
 	render() {
+		let whitelabelClassName =
+			this.props.config && this.props.config.SLUG
+				? ` skill-${this.props.config.SLUG}`
+				: ''
 		return (
-			<html className={`skill skill-${this.props.config.SLUG}`}>
+			<html className={`skill${whitelabelClassName}`}>
 				<Head>
 					<title>{this.props.name}</title>
 					<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -48,6 +53,14 @@ export default class MyDocument extends Document {
 					{this.props.whitelabel && (
 						<link
 							href={this.props.whitelabel}
+							rel="stylesheet"
+							type="text/css"
+							charSet="UTF-8"
+						/>
+					)}
+					{this.props.orgWhitelabel && (
+						<link
+							href={this.props.orgWhitelabel}
 							rel="stylesheet"
 							type="text/css"
 							charSet="UTF-8"
