@@ -50,6 +50,8 @@ exports[`it renders 1`] = `
 <div
   className="Switch switch  c0"
   onClick={[Function]}
+  onKeyDown={[Function]}
+  tabIndex={0}
 >
   <span
     className="SwitchButton c1"
