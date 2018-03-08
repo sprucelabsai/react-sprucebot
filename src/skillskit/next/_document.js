@@ -1,19 +1,31 @@
 import React from 'react'
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+const debug = require('debug')('react-sprucebot')
 
 export default class MyDocument extends Document {
 	static async getInitialProps({ renderPage, query, store }) {
 		// Build stylesheets from styled-components
 		const sheet = new ServerStyleSheet()
-		const { auth, config } = store && store.getState()
-
+		const page = renderPage(App => props =>
+			sheet.collectStyles(<App {...props} />)
+		)
+		const styleTags = sheet.getStyleElement()
+		// Store is undefined when hmr is the first
+		// request the server sees after boot
+		// Ideally store is always defined.
+		// Revisit when using `next>5.0.0`
+		if (!store) {
+			debug('No store in _document')
+			return { ...page, styleTags }
+		}
+		const { auth, config } = store.getState()
 		let whitelabel = config.WHITELABEL
 
-		//we have any whitelabelling happening?
 		let orgWhitelabel
+
+		//we have any whitelabelling happening?
 		if (
-			auth &&
 			auth.Location &&
 			auth.Location.Organization &&
 			auth.Location.Organization.allowWhiteLabelling &&
@@ -21,11 +33,6 @@ export default class MyDocument extends Document {
 		) {
 			orgWhitelabel = auth.Location.Organization.whiteLabellingStylesheetUrl
 		}
-
-		const page = renderPage(App => props =>
-			sheet.collectStyles(<App {...props} />)
-		)
-		const styleTags = sheet.getStyleElement()
 
 		return { ...page, styleTags, whitelabel, auth, config, orgWhitelabel }
 	}
