@@ -8,6 +8,7 @@ import DevControls from '../../components/DevControls/DevControls'
 import Loader from '../../components/Loader/Loader'
 import qs from 'qs'
 import lang from '../helpers/lang'
+const debug = require('debug')('react-sprucebot')
 
 const setCookie = (named, value, req, res) => {
 	if (req && req.headers) {
@@ -62,9 +63,13 @@ const Page = Wrapped => {
 						setCookie('jwt', query.jwt, req, res)
 					}
 				} catch (err) {
-					console.error(err)
-					console.warn('Error fetching user from jwt')
+					debug(err)
+					debug('Error fetching user from jwt')
 				}
+			} else {
+				debug(
+					'This looks pretty bad. You are missing a jwt and will probably be unauthorized'
+				)
 			}
 
 			const state = store.getState()
