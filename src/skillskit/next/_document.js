@@ -26,6 +26,7 @@ export default class MyDocument extends Document {
 
 		//we have any whitelabelling happening?
 		if (
+			auth &&
 			auth.Location &&
 			auth.Location.Organization &&
 			auth.Location.Organization.allowWhiteLabelling &&
