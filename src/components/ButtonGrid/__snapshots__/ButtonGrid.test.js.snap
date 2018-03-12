@@ -2,13 +2,13 @@
 
 exports[`ButtonGrid renders 1`] = `
 <div
-  className="ButtonGrid-s3gomjg-0 btn_grid jWCqnU"
+  className="ButtonGrid-s119c6nx-0 btn_grid ivLDPO"
 />
 `;
 
 exports[`ButtonGrid renders a GridButton 1`] = `
 <div
-  className="ButtonGrid-s3gomjg-0 btn_grid jWCqnU"
+  className="ButtonGrid-s119c6nx-0 btn_grid ivLDPO"
 >
   <a
     className="btn  "
